@@ -14,13 +14,13 @@ url: >-
 specificationVersion: '0.19'
 tags:
   - Cloud Computing
+  - Databases
   - Infrastructure
   - Machine Learning
-  - Storage
-  - Databases
   - Networking
   - Security
   - Serverless
+  - Storage
 apis:
   - aid: gcp:compute-engine
     name: Compute Engine API
@@ -29,9 +29,9 @@ apis:
     humanURL: https://cloud.google.com/compute
     baseURL: https://compute.googleapis.com
     tags:
-      - Virtual Machines
-      - IaaS
       - Compute
+      - IaaS
+      - Virtual Machines
     properties:
       - type: Documentation
         url: https://cloud.google.com/compute/docs/reference/rest/v1
@@ -46,9 +46,9 @@ apis:
     humanURL: https://cloud.google.com/storage
     baseURL: https://storage.googleapis.com
     tags:
+      - Data
       - Object Storage
       - Storage
-      - Data
     properties:
       - type: Documentation
         url: https://cloud.google.com/storage/docs/json_api
@@ -63,9 +63,9 @@ apis:
     humanURL: https://cloud.google.com/functions
     baseURL: https://cloudfunctions.googleapis.com
     tags:
-      - Serverless
       - FaaS
       - Functions
+      - Serverless
     properties:
       - type: Documentation
         url: https://cloud.google.com/functions/docs/reference/rest
@@ -80,9 +80,9 @@ apis:
     humanURL: https://cloud.google.com/pubsub
     baseURL: https://pubsub.googleapis.com
     tags:
+      - Events
       - Messaging
       - Streaming
-      - Events
     properties:
       - type: Documentation
         url: https://cloud.google.com/pubsub/docs/reference/rest
@@ -97,9 +97,9 @@ apis:
     humanURL: https://cloud.google.com/bigquery
     baseURL: https://bigquery.googleapis.com
     tags:
-      - Data Warehouse
       - Analytics
       - Big Data
+      - Data Warehouse
     properties:
       - type: Documentation
         url: https://cloud.google.com/bigquery/docs/reference/rest
@@ -114,9 +114,9 @@ apis:
     humanURL: https://cloud.google.com/vision
     baseURL: https://vision.googleapis.com
     tags:
-      - Machine Learning
-      - Computer Vision
       - AI
+      - Computer Vision
+      - Machine Learning
     properties:
       - type: Documentation
         url: https://cloud.google.com/vision/docs/reference/rest
@@ -131,17 +131,16 @@ apis:
     humanURL: https://cloud.google.com/natural-language
     baseURL: https://language.googleapis.com
     tags:
+      - AI
       - Machine Learning
       - NLP
-      - AI
     properties:
       - type: Documentation
         url: https://cloud.google.com/natural-language/docs/reference/rest
       - type: OpenAPI
         url: https://language.googleapis.com/$discovery/rest?version=v1
       - type: Console
-        url: 
-          https://console.cloud.google.com/apis/library/language.googleapis.com
+        url: https://console.cloud.google.com/apis/library/language.googleapis.com
   - aid: gcp:kubernetes-engine
     name: Kubernetes Engine API
     description: >-
@@ -149,8 +148,8 @@ apis:
     humanURL: https://cloud.google.com/kubernetes-engine
     baseURL: https://container.googleapis.com
     tags:
-      - Kubernetes
       - Containers
+      - Kubernetes
       - Orchestration
     properties:
       - type: Documentation
@@ -167,8 +166,8 @@ apis:
     baseURL: https://sqladmin.googleapis.com
     tags:
       - Database
-      - SQL
       - Managed Service
+      - SQL
     properties:
       - type: Documentation
         url: https://cloud.google.com/sql/docs/mysql/admin-api
@@ -183,9 +182,9 @@ apis:
     humanURL: https://cloud.google.com/firestore
     baseURL: https://firestore.googleapis.com
     tags:
-      - NoSQL
       - Database
-      - Real-time
+      - NoSQL
+      - Real-Time
     properties:
       - type: Documentation
         url: https://cloud.google.com/firestore/docs/reference/rest
