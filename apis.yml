@@ -1,6 +1,8 @@
 aid: gcp
 name: Google Cloud Platform APIs
-description: Comprehensive collection of Google Cloud Platform APIs for cloud computing, storage, machine learning, and infrastructure management
+description: >-
+  Comprehensive collection of Google Cloud Platform APIs for cloud computing, storage,
+  machine learning, and infrastructure management.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
@@ -22,7 +24,8 @@ tags:
 apis:
   - aid: gcp:compute-engine
     name: Compute Engine API
-    description: Create and manage virtual machines on Google's infrastructure
+    description: >-
+      Create and manage virtual machines on Google's infrastructure.
     humanURL: https://cloud.google.com/compute
     baseURL: https://compute.googleapis.com
     tags:
@@ -38,7 +41,8 @@ apis:
         url: https://console.cloud.google.com/compute
   - aid: gcp:cloud-storage
     name: Cloud Storage API
-    description: Object storage service for storing and accessing data on Google Cloud Platform
+    description: >-
+      Object storage service for storing and accessing data on Google Cloud Platform.
     humanURL: https://cloud.google.com/storage
     baseURL: https://storage.googleapis.com
     tags:
@@ -54,7 +58,8 @@ apis:
         url: https://console.cloud.google.com/storage
   - aid: gcp:cloud-functions
     name: Cloud Functions API
-    description: Event-driven serverless compute platform for building and connecting cloud services
+    description: >-
+      Event-driven serverless compute platform for building and connecting cloud services.
     humanURL: https://cloud.google.com/functions
     baseURL: https://cloudfunctions.googleapis.com
     tags:
@@ -70,7 +75,8 @@ apis:
         url: https://console.cloud.google.com/functions
   - aid: gcp:cloud-pubsub
     name: Cloud Pub/Sub API
-    description: Messaging and ingestion service for event-driven systems and streaming analytics
+    description: >-
+      Messaging and ingestion service for event-driven systems and streaming analytics.
     humanURL: https://cloud.google.com/pubsub
     baseURL: https://pubsub.googleapis.com
     tags:
@@ -86,7 +92,8 @@ apis:
         url: https://console.cloud.google.com/cloudpubsub
   - aid: gcp:bigquery
     name: BigQuery API
-    description: Serverless, highly scalable data warehouse for analytics
+    description: >-
+      Serverless, highly scalable data warehouse for analytics.
     humanURL: https://cloud.google.com/bigquery
     baseURL: https://bigquery.googleapis.com
     tags:
@@ -102,7 +109,8 @@ apis:
         url: https://console.cloud.google.com/bigquery
   - aid: gcp:cloud-vision
     name: Cloud Vision API
-    description: Image analysis and machine learning for detecting objects, faces, and text
+    description: >-
+      Image analysis and machine learning for detecting objects, faces, and text.
     humanURL: https://cloud.google.com/vision
     baseURL: https://vision.googleapis.com
     tags:
@@ -118,7 +126,8 @@ apis:
         url: https://console.cloud.google.com/apis/library/vision.googleapis.com
   - aid: gcp:cloud-natural-language
     name: Cloud Natural Language API
-    description: Natural language understanding and sentiment analysis
+    description: >-
+      Natural language understanding and sentiment analysis.
     humanURL: https://cloud.google.com/natural-language
     baseURL: https://language.googleapis.com
     tags:
@@ -131,10 +140,12 @@ apis:
       - type: OpenAPI
         url: https://language.googleapis.com/$discovery/rest?version=v1
       - type: Console
-        url: https://console.cloud.google.com/apis/library/language.googleapis.com
+        url: 
+          https://console.cloud.google.com/apis/library/language.googleapis.com
   - aid: gcp:kubernetes-engine
     name: Kubernetes Engine API
-    description: Managed Kubernetes service for deploying containerized applications
+    description: >-
+      Managed Kubernetes service for deploying containerized applications.
     humanURL: https://cloud.google.com/kubernetes-engine
     baseURL: https://container.googleapis.com
     tags:
@@ -150,7 +161,8 @@ apis:
         url: https://console.cloud.google.com/kubernetes
   - aid: gcp:cloud-sql
     name: Cloud SQL Admin API
-    description: Managed MySQL, PostgreSQL, and SQL Server databases
+    description: >-
+      Managed MySQL, PostgreSQL, and SQL Server databases.
     humanURL: https://cloud.google.com/sql
     baseURL: https://sqladmin.googleapis.com
     tags:
@@ -166,7 +178,8 @@ apis:
         url: https://console.cloud.google.com/sql
   - aid: gcp:cloud-firestore
     name: Cloud Firestore API
-    description: NoSQL document database for mobile, web, and server development
+    description: >-
+      NoSQL document database for mobile, web, and server development.
     humanURL: https://cloud.google.com/firestore
     baseURL: https://firestore.googleapis.com
     tags:
