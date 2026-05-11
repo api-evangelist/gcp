@@ -209,6 +209,10 @@ common:
     url: https://cloud.google.com/blog
   - type: Terms of Service
     url: https://cloud.google.com/terms
+  - type: Integrations
+    url: https://cloud.google.com/marketplace
+integrations:
+  - name: Become a Partner
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
