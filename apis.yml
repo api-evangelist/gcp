@@ -193,6 +193,8 @@ apis:
       - type: Console
         url: https://console.cloud.google.com/firestore
 common:
+  - type: GitHubOrganization
+    url: https://github.com/GoogleCloudPlatform
   - type: Authentication
     url: https://cloud.google.com/docs/authentication
   - type: Console
