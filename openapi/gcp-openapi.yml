@@ -1,0 +1,583 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Compute Engine API
+  description: |
+    REST API for managing virtual machines, disks, networking, load balancing,
+    and related Compute Engine resources on Google Cloud Platform. This spec
+    covers a representative subset of v1 resources. Full canonical machine
+    spec is the Google Discovery Document at
+    https://compute.googleapis.com/$discovery/rest?version=v1.
+  version: "v1"
+  contact:
+    name: Google Cloud Compute Engine Documentation
+    url: https://cloud.google.com/compute/docs/reference/rest/v1
+servers:
+  - url: https://compute.googleapis.com/compute/v1
+    description: Production
+security:
+  - oauth2: [https://www.googleapis.com/auth/compute, https://www.googleapis.com/auth/cloud-platform]
+  - bearerAuth: []
+tags:
+  - name: Instances
+    description: Virtual machine instances
+  - name: Disks
+    description: Persistent disks
+  - name: Images
+    description: VM images
+  - name: Snapshots
+    description: Disk snapshots
+  - name: Networks
+    description: VPC networks
+  - name: Firewalls
+    description: Firewall rules
+  - name: MachineTypes
+    description: Machine type catalog
+paths:
+  /projects/{project}/zones/{zone}/instances:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+    get:
+      tags: [Instances]
+      summary: List instances
+      operationId: listInstances
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/MaxResults'
+        - $ref: '#/components/parameters/PageToken'
+        - $ref: '#/components/parameters/OrderBy'
+      responses:
+        '200':
+          description: Instance list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstanceList'
+    post:
+      tags: [Instances]
+      summary: Create an instance
+      operationId: insertInstance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Instance'
+      responses:
+        '200':
+          description: Operation accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/instances/{instance}:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+      - $ref: '#/components/parameters/InstanceName'
+    get:
+      tags: [Instances]
+      summary: Get an instance
+      operationId: getInstance
+      responses:
+        '200':
+          description: Instance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Instance'
+    delete:
+      tags: [Instances]
+      summary: Delete an instance
+      operationId: deleteInstance
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/instances/{instance}/start:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+      - $ref: '#/components/parameters/InstanceName'
+    post:
+      tags: [Instances]
+      summary: Start an instance
+      operationId: startInstance
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/instances/{instance}/stop:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+      - $ref: '#/components/parameters/InstanceName'
+    post:
+      tags: [Instances]
+      summary: Stop an instance
+      operationId: stopInstance
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/instances/{instance}/reset:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+      - $ref: '#/components/parameters/InstanceName'
+    post:
+      tags: [Instances]
+      summary: Reset an instance
+      operationId: resetInstance
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/disks:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+    get:
+      tags: [Disks]
+      summary: List disks
+      operationId: listDisks
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/MaxResults'
+        - $ref: '#/components/parameters/PageToken'
+      responses:
+        '200':
+          description: Disk list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Disk'
+                  nextPageToken:
+                    type: string
+    post:
+      tags: [Disks]
+      summary: Create a disk
+      operationId: insertDisk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Disk'
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/disks/{disk}:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+      - name: disk
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags: [Disks]
+      summary: Get a disk
+      operationId: getDisk
+      responses:
+        '200':
+          description: Disk
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Disk'
+    delete:
+      tags: [Disks]
+      summary: Delete a disk
+      operationId: deleteDisk
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/global/images:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+    get:
+      tags: [Images]
+      summary: List images
+      operationId: listImages
+      parameters:
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/MaxResults'
+        - $ref: '#/components/parameters/PageToken'
+      responses:
+        '200':
+          description: Image list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Image'
+  /projects/{project}/global/snapshots:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+    get:
+      tags: [Snapshots]
+      summary: List snapshots
+      operationId: listSnapshots
+      responses:
+        '200':
+          description: Snapshot list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Snapshot'
+  /projects/{project}/global/networks:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+    get:
+      tags: [Networks]
+      summary: List networks
+      operationId: listNetworks
+      responses:
+        '200':
+          description: Network list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Network'
+    post:
+      tags: [Networks]
+      summary: Create a network
+      operationId: insertNetwork
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Network'
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/global/firewalls:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+    get:
+      tags: [Firewalls]
+      summary: List firewalls
+      operationId: listFirewalls
+      responses:
+        '200':
+          description: Firewall list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Firewall'
+    post:
+      tags: [Firewalls]
+      summary: Create a firewall
+      operationId: insertFirewall
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Firewall'
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{project}/zones/{zone}/machineTypes:
+    parameters:
+      - $ref: '#/components/parameters/Project'
+      - $ref: '#/components/parameters/Zone'
+    get:
+      tags: [MachineTypes]
+      summary: List machine types in a zone
+      operationId: listMachineTypes
+      responses:
+        '200':
+          description: Machine type list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MachineType'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/compute: Manage Compute Engine resources
+            https://www.googleapis.com/auth/cloud-platform: View and manage all Google Cloud resources
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Project:
+      name: project
+      in: path
+      required: true
+      description: Project ID
+      schema:
+        type: string
+    Zone:
+      name: zone
+      in: path
+      required: true
+      description: Zone name (e.g. us-central1-a)
+      schema:
+        type: string
+    InstanceName:
+      name: instance
+      in: path
+      required: true
+      schema:
+        type: string
+    Filter:
+      name: filter
+      in: query
+      schema:
+        type: string
+    MaxResults:
+      name: maxResults
+      in: query
+      schema:
+        type: integer
+        default: 500
+    PageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    OrderBy:
+      name: orderBy
+      in: query
+      schema:
+        type: string
+  schemas:
+    Instance:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        machineType:
+          type: string
+        status:
+          type: string
+          enum: [PROVISIONING, STAGING, RUNNING, STOPPING, STOPPED, SUSPENDING, SUSPENDED, TERMINATED]
+        zone:
+          type: string
+        networkInterfaces:
+          type: array
+          items:
+            type: object
+        disks:
+          type: array
+          items:
+            type: object
+        metadata:
+          type: object
+        labels:
+          type: object
+        creationTimestamp:
+          type: string
+          format: date-time
+    InstanceList:
+      type: object
+      properties:
+        kind:
+          type: string
+        id:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          type: string
+        selfLink:
+          type: string
+    Disk:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sizeGb:
+          type: string
+        type:
+          type: string
+        zone:
+          type: string
+        sourceImage:
+          type: string
+        status:
+          type: string
+    Image:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        family:
+          type: string
+        sourceType:
+          type: string
+        status:
+          type: string
+        diskSizeGb:
+          type: string
+    Snapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sourceDisk:
+          type: string
+        diskSizeGb:
+          type: string
+        status:
+          type: string
+    Network:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        autoCreateSubnetworks:
+          type: boolean
+        routingConfig:
+          type: object
+    Firewall:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        network:
+          type: string
+        direction:
+          type: string
+          enum: [INGRESS, EGRESS]
+        priority:
+          type: integer
+        sourceRanges:
+          type: array
+          items:
+            type: string
+        allowed:
+          type: array
+          items:
+            type: object
+            properties:
+              IPProtocol:
+                type: string
+              ports:
+                type: array
+                items:
+                  type: string
+    MachineType:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        guestCpus:
+          type: integer
+        memoryMb:
+          type: integer
+        zone:
+          type: string
+    Operation:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        operationType:
+          type: string
+        targetLink:
+          type: string
+        status:
+          type: string
+          enum: [PENDING, RUNNING, DONE]
+        progress:
+          type: integer
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        error:
+          type: object
