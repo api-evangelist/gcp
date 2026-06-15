@@ -1,0 +1,593 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Compute Engine API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Instances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List instances"
+        },
+        {
+          "info": {
+            "name": "Create an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an instance"
+        },
+        {
+          "info": {
+            "name": "Get an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances/:instance",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "instance",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an instance"
+        },
+        {
+          "info": {
+            "name": "Delete an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances/:instance",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "instance",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an instance"
+        },
+        {
+          "info": {
+            "name": "Start an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances/:instance/start",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "instance",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start an instance"
+        },
+        {
+          "info": {
+            "name": "Stop an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances/:instance/stop",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "instance",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an instance"
+        },
+        {
+          "info": {
+            "name": "Reset an instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/instances/:instance/reset",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "instance",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset an instance"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Disks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List disks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List disks"
+        },
+        {
+          "info": {
+            "name": "Create a disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a disk"
+        },
+        {
+          "info": {
+            "name": "Get a disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks/:disk",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "disk",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a disk"
+        },
+        {
+          "info": {
+            "name": "Delete a disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks/:disk",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "disk",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a disk"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/images",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List images"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Snapshots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/snapshots",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ]
+          },
+          "docs": "List snapshots"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/networks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ]
+          },
+          "docs": "List networks"
+        },
+        {
+          "info": {
+            "name": "Create a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/networks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a network"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Firewalls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List firewalls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/firewalls",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ]
+          },
+          "docs": "List firewalls"
+        },
+        {
+          "info": {
+            "name": "Create a firewall",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/firewalls",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a firewall"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "MachineTypes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List machine types in a zone",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/machineTypes",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              }
+            ]
+          },
+          "docs": "List machine types in a zone"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
