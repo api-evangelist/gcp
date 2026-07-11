@@ -193,6 +193,12 @@ apis:
       - type: Console
         url: https://console.cloud.google.com/firestore
 common:
+  - type: VulnerabilityDisclosure
+    url: security/gcp-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/gcp-domain-security.yml
+  - type: Authentication
+    url: authentication/gcp-authentication.yml
   - type: OAuthScopes
     url: scopes/gcp-scopes.yml
   - type: GitHubOrganization
