@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/gcp-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/gcp-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: https://www.googleapis.com/auth/cloud-platform
+  description: View and manage all Google Cloud resources
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/gcp-openapi.yml
+- scope: https://www.googleapis.com/auth/compute
+  description: Manage Compute Engine resources
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/gcp-openapi.yml
