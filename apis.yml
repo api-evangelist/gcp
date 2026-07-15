@@ -193,6 +193,8 @@ apis:
       - type: Console
         url: https://console.cloud.google.com/firestore
 common:
+  - type: AgenticAccess
+    url: agentic-access/gcp-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/gcp-vulnerability-disclosure.yml
   - type: DomainSecurity
