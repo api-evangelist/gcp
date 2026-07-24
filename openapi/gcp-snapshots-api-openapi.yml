@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Compute Engine Disks Snapshots API
+  description: 'REST API for managing virtual machines, disks, networking, load balancing,
+
+    and related Compute Engine resources on Google Cloud Platform. This spec
+
+    covers a representative subset of v1 resources. Full canonical machine
+
+    spec is the Google Discovery Document at
+
+    https://compute.googleapis.com/$discovery/rest?version=v1.
+
+    '
+  version: v1
+  contact:
+    name: Google Cloud Compute Engine Documentation
+    url: https://cloud.google.com/compute/docs/reference/rest/v1
+servers:
+- url: https://compute.googleapis.com/compute/v1
+  description: Production
+security:
+- oauth2:
+  - https://www.googleapis.com/auth/compute
+  - https://www.googleapis.com/auth/cloud-platform
+- bearerAuth: []
+tags:
+- name: Snapshots
+  description: Disk snapshots
+paths:
+  /projects/{project}/global/snapshots:
+    parameters:
+    - $ref: '#/components/parameters/Project'
+    get:
+      tags:
+      - Snapshots
+      summary: List snapshots
+      operationId: listSnapshots
+      responses:
+        '200':
+          description: Snapshot list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Snapshot'
+components:
+  parameters:
+    Project:
+      name: project
+      in: path
+      required: true
+      description: Project ID
+      schema:
+        type: string
+  schemas:
+    Snapshot:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sourceDisk:
+          type: string
+        diskSizeGb:
+          type: string
+        status:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/compute: Manage Compute Engine resources
+            https://www.googleapis.com/auth/cloud-platform: View and manage all Google Cloud resources
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
