@@ -1,0 +1,26 @@
+{
+  "provider": "gcp",
+  "sources": [
+    "gcp-disks-api-openapi.yml",
+    "gcp-firewalls-api-openapi.yml",
+    "gcp-images-api-openapi.yml",
+    "gcp-instances-api-openapi.yml",
+    "gcp-machinetypes-api-openapi.yml",
+    "gcp-networks-api-openapi.yml",
+    "gcp-snapshots-api-openapi.yml"
+  ],
+  "outputs": [
+    "gcp-disks-api-openapi.yml",
+    "gcp-firewalls-api-openapi.yml",
+    "gcp-images-api-openapi.yml",
+    "gcp-instances-api-openapi.yml",
+    "gcp-machinetypes-api-openapi.yml",
+    "gcp-networks-api-openapi.yml",
+    "gcp-snapshots-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
