@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Compute Engine Disks API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Disks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List disks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List disks"
+        },
+        {
+          "info": {
+            "name": "Create a disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a disk"
+        },
+        {
+          "info": {
+            "name": "Get a disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks/:disk",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "disk",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a disk"
+        },
+        {
+          "info": {
+            "name": "Delete a disk",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/zones/:zone/disks/:disk",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "zone",
+                "value": "",
+                "type": "path",
+                "description": "Zone name (e.g. us-central1-a)"
+              },
+              {
+                "name": "disk",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a disk"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

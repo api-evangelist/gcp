@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Compute Engine Disks Networks API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/networks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ]
+          },
+          "docs": "List networks"
+        },
+        {
+          "info": {
+            "name": "Create a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://compute.googleapis.com/compute/v1/projects/:project/global/networks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a network"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

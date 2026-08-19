@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "ebf9ff21-dc45-4108-9844-fb59b0e494c6",
+      "name": "MachineTypes",
+      "description": {
+        "content": "Machine type catalog",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "298de2a7-b937-4961-aabb-df3a5a18df79",
+          "name": "List machine types in a zone",
+          "request": {
+            "name": "List machine types in a zone",
+            "description": {},
+            "url": {
+              "path": [
+                "projects",
+                ":project",
+                "zones",
+                ":zone",
+                "machineTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) Project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "zone",
+                  "description": "(Required) Zone name (e.g. us-central1-a)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "466e47f3-6b18-49fd-a1c2-45767e15e922",
+              "name": "Machine type list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":project",
+                    "zones",
+                    ":zone",
+                    "machineTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "zone",
+                      "description": "(Required) Zone name (e.g. us-central1-a)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"guestCpus\": 232,\n      \"memoryMb\": 2949,\n      \"zone\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"guestCpus\": 7013,\n      \"memoryMb\": 2509,\n      \"zone\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://compute.googleapis.com/compute/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/compute https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "87a59ee9-4517-4ddd-a644-87145d9c136c",
+    "name": "Google Cloud Compute Engine Disks MachineTypes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for managing virtual machines, disks, networking, load balancing,\nand related Compute Engine resources on Google Cloud Platform. This spec\ncovers a representative subset of v1 resources. Full canonical machine\nspec is the Google Discovery Document at\nhttps://compute.googleapis.com/$discovery/rest?version=v1.\n\n\nContact Support:\n Name: Google Cloud Compute Engine Documentation",
+      "type": "text/plain"
+    }
+  }
+}
