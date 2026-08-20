@@ -29,6 +29,15 @@ tags:
   - Cloud Computing
   - Databases
   - Infrastructure
+  - Machine-Learning
+  - Networking
+  - Security
+  - Serverless
+  - Storage
+tags_raw:
+  - Cloud Computing
+  - Databases
+  - Infrastructure
   - Machine Learning
   - Networking
   - Security
@@ -141,6 +150,8 @@ apis:
   humanURL: https://cloud.google.com/compute
   baseURL: https://compute.googleapis.com
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -241,6 +252,8 @@ apis:
   humanURL: https://cloud.google.com/compute
   baseURL: https://compute.googleapis.com
   tags:
+  - Machine Types
+  tags_raw:
   - MachineTypes
   properties:
   - type: OpenAPI
