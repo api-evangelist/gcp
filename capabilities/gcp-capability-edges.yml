@@ -1,0 +1,60 @@
+slug: gcp
+provider: Google Cloud Platform APIs
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Instances
+  spec_file: gcp-instances-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.9
+  evidence: POST /projects/{project}/zones/{zone}/instances/{instance}/start startInstance Start an instance
+  reason: Full lifecycle control of virtual machines (create, delete, start, stop, reset) — unambiguously
+    cloud compute infrastructure management.
+- tag: Disks
+  spec_file: gcp-disks-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: POST /projects/{project}/zones/{zone}/disks insertDisk Create a disk
+  reason: Lifecycle management of Compute Engine block storage volumes — plainly cloud infrastructure
+    (compute/storage) management, not a business-domain capability.
+- tag: Networks
+  spec_file: gcp-networks-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: POST /projects/{project}/global/networks insertNetwork Create a network
+  reason: 'Creation and listing of VPC networks in a cloud project — cloud network infrastructure management.
+    Not telecom network operations: these are virtual cloud constructs, not carrier network elements.'
+- tag: Images
+  spec_file: gcp-images-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: GET /projects/{project}/global/images listImages List images
+  reason: Catalogue of VM boot/machine images used to provision cloud compute — infrastructure management.
+    Single read-only operation limits confidence.
+- tag: MachineTypes
+  spec_file: gcp-machinetypes-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /projects/{project}/zones/{zone}/machineTypes List machine types in a zone
+  reason: Reference data describing available compute shapes for provisioning VMs — supports cloud infrastructure
+    management. Read-only reference endpoint, so moderate confidence.

@@ -411,6 +411,9 @@ apis:
   - type: Console
     url: https://console.cloud.google.com/firestore
 common:
+  - type: CapabilityMap
+    url: capabilities/gcp-capability-edges.yml
+    name: Google Cloud Platform APIs Business Capability Map
   - type: AgenticAccess
     url: agentic-access/gcp-agentic-access.yml
   - type: VulnerabilityDisclosure
