@@ -264,7 +264,7 @@ apis:
   humanURL: https://cloud.google.com/compute
   baseURL: https://compute.googleapis.com
   tags:
-  - MachineTypes
+  - Machine Types
   tags_raw:
   - MachineTypes
   properties:
